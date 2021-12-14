@@ -2,6 +2,8 @@
   "private": true,
   "version": "0.17.5",
   "name": "monorepo",
+  "main": "packages/react-native-web/dist/cjs/index.js",
+  "module": "packages/react-native-web/dist/index.js",
   "scripts": {
     "clean": "del-cli ./packages/*/dist",
     "compile": "npm-run-all clean -p \"compile:* {@}\" --",
