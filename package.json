@@ -61,8 +61,7 @@
     "prettier": "^2.7.1"
   },
   "workspaces": [
-    "packages/react-native-web",
-    "packages/*"
+    "packages/react-native-web"
   ],
   "husky": {
     "hooks": {
