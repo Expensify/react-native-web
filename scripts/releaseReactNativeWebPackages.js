@@ -13,7 +13,6 @@ const argv = minimist(args);
 
 const version = argv._[0];
 const skipGit = argv['skip-git'];
-const oneTimeCode = argv.otp;
 
 console.log(`Publishing react-native-web@${version}`);
 
@@ -72,7 +71,7 @@ if (!skipGit) {
 // Publish public packages
 workspaces.forEach(({ directory, packageJson }) => {
   if (!packageJson.private) {
-    execSync(`cd ${directory} && npm publish --otp ${oneTimeCode}`);
+    execSync(`cd ${directory} && npm publish`);
   }
 });
 
