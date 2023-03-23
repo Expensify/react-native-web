@@ -61,8 +61,7 @@
     "prettier": "^2.7.1"
   },
   "workspaces": [
-    "packages/react-native-web",
-    "packages/*"
+    "packages/react-native-web"
   ],
   "husky": {
     "hooks": {
@@ -84,5 +83,12 @@
     "trailingComma": "none"
   },
   "author": "Nicolas Gallagher",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-tester": "^11.0.4",
+    "fbjs": "^3.0.4",
+    "normalize-css-color": "^1.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
