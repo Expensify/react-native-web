@@ -101,12 +101,12 @@ const TextInput: React.AbstractComponent<
     blurOnSubmit,
     clearTextOnFocus,
     dir,
-    editable = true,
+    editable,
     enterKeyHint,
     inputMode,
-    keyboardType = 'default',
+    keyboardType,
     multiline = false,
-    numberOfLines = 1,
+    numberOfLines,
     onBlur,
     onChange,
     onChangeText,
@@ -133,7 +133,7 @@ const TextInput: React.AbstractComponent<
     onStartShouldSetResponderCapture,
     onSubmitEditing,
     placeholderTextColor,
-    readOnly,
+    readOnly = false,
     returnKeyType,
     rows,
     secureTextEntry = false,
@@ -389,18 +389,14 @@ const TextInput: React.AbstractComponent<
   if (editable != null) {
     warnOnce('editable', 'editable is deprecated. Use readOnly.');
   }
-  supportedProps.readOnly = readOnly || !editable;
+  supportedProps.readOnly = readOnly === true || editable === false;
   if (numberOfLines != null) {
     warnOnce(
       'numberOfLines',
       'TextInput numberOfLines is deprecated. Use rows.'
     );
   }
-  supportedProps.rows = multiline
-    ? rows != null
-      ? rows
-      : numberOfLines
-    : undefined;
+  supportedProps.rows = multiline ? (rows != null ? rows : numberOfLines) : 1;
   supportedProps.spellCheck = spellCheck != null ? spellCheck : autoCorrect;
   supportedProps.style = [
     { '--placeholderTextColor': placeholderTextColor },

@@ -3,7 +3,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "name": "react-native-web",
-  "version": "0.19.1",
+  "version": "0.19.4",
   "description": "React Native for Web",
   "module": "dist/index.js",
   "main": "dist/cjs/index.js",
@@ -25,7 +25,9 @@
     "@babel/runtime": "^7.18.6",
     "fbjs": "^3.0.4",
     "inline-style-prefixer": "^6.0.1",
+    "memoize-one": "^6.0.0",
     "normalize-css-color": "^1.0.2",
+    "nullthrows": "^1.1.1",
     "postcss-value-parser": "^4.2.0",
     "styleq": "^0.1.2"
   },
