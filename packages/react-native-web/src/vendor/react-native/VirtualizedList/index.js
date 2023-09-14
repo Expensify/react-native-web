@@ -41,6 +41,7 @@ import {
   type ChildListState,
   type ListDebugInfo,
 } from './VirtualizedListContext.js';
+import canUsePassive from '../../../modules/canUsePassive';
 
 type Item = any;
 
@@ -412,6 +413,8 @@ function getItemKey(props: Props, index: number): ?string {
   }
   return extractKey(props, item, 0);
 }
+
+const supportsPassive = canUsePassive();
 
 /**
  * Base implementation for the more convenient [`<FlatList>`](https://reactnative.dev/docs/flatlist)
@@ -880,7 +883,8 @@ class VirtualizedList extends React.PureComponent<Props, State> {
   setupWebWheelHandler() {
     if (this._scrollRef && this._scrollRef.getScrollableNode) {
       this._scrollRef.getScrollableNode().addEventListener('wheel',
-          this.invertedWheelEventHandler
+          this.invertedWheelEventHandler,
+          supportsPassive ? { passive: true } : false
       );
     } else {
       setTimeout(() => this.setupWebWheelHandler(), 50);
