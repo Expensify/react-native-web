@@ -884,6 +884,7 @@ class VirtualizedList extends React.PureComponent<Props, State> {
     if (this._scrollRef && this._scrollRef.getScrollableNode) {
       this._scrollRef.getScrollableNode().addEventListener('wheel',
           this.invertedWheelEventHandler,
+          supportsPassive ? { passive: true } : false
       );
     } else {
       setTimeout(() => this.setupWebWheelHandler(), 50);
@@ -895,8 +896,7 @@ class VirtualizedList extends React.PureComponent<Props, State> {
   teardownWebWheelHandler() {
     if (this._scrollRef && this._scrollRef.getScrollableNode) {
       this._scrollRef.getScrollableNode().removeEventListener('wheel',
-          this.invertedWheelEventHandler,
-          supportsPassive ? { passive: true } : false
+          this.invertedWheelEventHandler
       );
     }
   }
