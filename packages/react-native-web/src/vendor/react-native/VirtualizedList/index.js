@@ -832,7 +832,6 @@ class VirtualizedList extends React.PureComponent<Props, State> {
           ev.target.scrollTop += targetDelta;
           node.scrollTop -= leftoverDelta;
         }
-        ev.preventDefault();
       }
     };
 
